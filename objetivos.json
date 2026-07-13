@@ -1,0 +1,24 @@
+{
+  "_instrucciones": "Edita este archivo en GitHub cada mes para fijar los objetivos. Solo cambia los numeros.",
+  "mes": "2026-06",
+  "objetivos": {
+    "Sevilla Este": {
+      "facturacion": 10000,
+      "citas": 1200,
+      "ticket_medio": 15,
+      "clientes_nuevos": 60
+    },
+    "Bormujos": {
+      "facturacion": 8000,
+      "citas": 900,
+      "ticket_medio": 14,
+      "clientes_nuevos": 45
+    },
+    "Gines": {
+      "facturacion": 7000,
+      "citas": 800,
+      "ticket_medio": 14,
+      "clientes_nuevos": 40
+    }
+  }
+}
