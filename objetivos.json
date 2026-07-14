@@ -1,0 +1,20 @@
+{
+  "_instrucciones": "Edita este archivo en GitHub cada mes. La facturacion sale de Koibox. Las calidades salen de los formularios (puntuacion sobre 100).",
+  "objetivos": {
+    "Sevilla Este": {
+      "facturacion": 10000,
+      "calidad_estandarizada": 85,
+      "calidad_personal": 85
+    },
+    "Bormujos": {
+      "facturacion": 8000,
+      "calidad_estandarizada": 85,
+      "calidad_personal": 85
+    },
+    "Gines": {
+      "facturacion": 7000,
+      "calidad_estandarizada": 85,
+      "calidad_personal": 85
+    }
+  }
+}
