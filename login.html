@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeBarbier — Acceso</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --rojo:#C8102E; --rojo-oscuro:#a00d24; --gris:#f7f7f7; --borde:#e0e0e0; --texto:#1a1a1a; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--gris);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .caja {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+  }
+
+  .cabecera {
+    background: var(--rojo);
+    padding: 32px 28px;
+    text-align: center;
+    color: white;
+  }
+  .logo {
+    width: 66px; height: 48px;
+    background: white;
+    border-radius: 10px;
+    margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .cabecera h1 { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; }
+  .cabecera p { font-size: 13px; opacity: .8; margin-top: 3px; }
+
+  form { padding: 28px; }
+  label { display: block; font-size: 12px; font-weight: 600; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .5px; }
+  input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1.5px solid var(--borde);
+    border-radius: 11px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 18px;
+    transition: border-color .2s;
+    background: var(--gris);
+  }
+  input:focus { outline: none; border-color: var(--rojo); background: white; }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    background: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  button:hover { background: var(--rojo-oscuro); }
+  button:disabled { opacity: .6; cursor: not-allowed; }
+
+  .error {
+    background: rgba(200,16,46,.08);
+    border: 1.5px solid rgba(200,16,46,.25);
+    color: var(--rojo);
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .error.visible { display: block; }
+
+  .pie { text-align: center; font-size: 11px; color: #999; padding: 0 28px 24px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="caja">
+  <div class="cabecera">
+    <div class="logo"><img src="logo.jpeg" alt="LeBarbier" onerror="this.parentElement.textContent='LB'"></div>
+    <h1>LeBarbier</h1>
+    <p>Asistente de negocio</p>
+  </div>
+
+  <form onsubmit="entrar(event)">
+    <div class="error" id="error"></div>
+
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" autocomplete="username" autocapitalize="none" required>
+
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" autocomplete="current-password" required>
+
+    <button type="submit" id="btn">Entrar</button>
+  </form>
+
+  <div class="pie">Acceso restringido al equipo de LeBarbier</div>
+</div>
+
+<script>
+  async function entrar(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn');
+    const err = document.getElementById('error');
+    btn.disabled = true;
+    btn.textContent = 'Entrando...';
+    err.classList.remove('visible');
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          usuario: document.getElementById('usuario').value,
+          password: document.getElementById('password').value,
+        }),
+      });
+      const d = await res.json();
+      if (d.ok) {
+        window.location.href = '/';
+      } else {
+        err.textContent = d.error || 'No se pudo entrar';
+        err.classList.add('visible');
+      }
+    } catch (ex) {
+      err.textContent = 'Error de conexion. Intentalo de nuevo.';
+      err.classList.add('visible');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Entrar';
+  }
+</script>
+</body>
+</html>
