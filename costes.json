@@ -1,0 +1,14 @@
+{
+  "_instrucciones": [
+    "Los sueldos, horas y gastos se leen del Google Sheet. Aqui solo va la configuracion general.",
+    "numero_pagas: 12 o 14 segun como pagues las nominas.",
+    "reparto_gastos_fijos: 'horas' reparte segun las horas que trabaja cada uno (lo mas justo). Tambien vale 'facturacion' o 'partes_iguales'."
+  ],
+  "numero_pagas": 12,
+  "reparto_gastos_fijos": "horas",
+  "locales": {
+    "Sevilla Este": { "gastos_fijos_mes": {}, "empleados": {} },
+    "Bormujos": { "gastos_fijos_mes": {}, "empleados": {} },
+    "Gines": { "gastos_fijos_mes": {}, "empleados": {} }
+  }
+}
