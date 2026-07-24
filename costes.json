@@ -1,0 +1,20 @@
+{
+  "_instrucciones": [
+    "Los sueldos, horas y gastos se leen del Google Sheet. Aqui solo va la configuracion general.",
+    "el_sueldo_ya_incluye_ss: true = el importe que pones en la hoja YA es el coste total para la empresa (Seguridad Social incluida). false = es el bruto del trabajador y hay que sumarle la SS aparte.",
+    "numero_pagas: 12 o 14 segun como pagues las nominas.",
+    "reparto_gastos_fijos: 'horas' reparte los gastos segun las horas que trabaja cada uno.",
+    "usar_facturacion_con_iva: true = calcula con el dinero que entra en caja.",
+    "horas_adicionales_cotizan: false = las horas adicionales se pagan tal cual, sin Seguridad Social."
+  ],
+  "el_sueldo_ya_incluye_ss": true,
+  "numero_pagas": 12,
+  "reparto_gastos_fijos": "horas",
+  "usar_facturacion_con_iva": true,
+  "horas_adicionales_cotizan": false,
+  "locales": {
+    "Sevilla Este": { "gastos_fijos_mes": {}, "empleados": {} },
+    "Bormujos": { "gastos_fijos_mes": {}, "empleados": {} },
+    "Gines": { "gastos_fijos_mes": {}, "empleados": {} }
+  }
+}
