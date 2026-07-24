@@ -1,0 +1,33 @@
+{
+  "_instrucciones": [
+    "Los sueldos, horas y gastos se leen del Google Sheet. Aqui va la configuracion general.",
+    "dias_apertura: que dias abris y con que peso. 1 = dia completo, 0.5 = medio dia. Si no abris, ponlo a 0.",
+    "el_sueldo_ya_incluye_ss: true = el importe de la hoja YA incluye la Seguridad Social.",
+    "numero_pagas: 12 o 14 segun como pagues las nominas.",
+    "reparto_gastos_fijos: 'horas' reparte los gastos segun las horas que trabaja cada uno.",
+    "usar_facturacion_con_iva: true = calcula con el dinero que entra en caja.",
+    "horas_adicionales_cotizan: false = las horas adicionales se pagan tal cual, sin Seguridad Social."
+  ],
+
+  "dias_apertura": {
+    "lunes": 0,
+    "martes": 1,
+    "miercoles": 1,
+    "jueves": 1,
+    "viernes": 1,
+    "sabado": 0.5,
+    "domingo": 0
+  },
+
+  "el_sueldo_ya_incluye_ss": true,
+  "numero_pagas": 12,
+  "reparto_gastos_fijos": "horas",
+  "usar_facturacion_con_iva": true,
+  "horas_adicionales_cotizan": false,
+
+  "locales": {
+    "Sevilla Este": { "gastos_fijos_mes": {}, "empleados": {} },
+    "Bormujos": { "gastos_fijos_mes": {}, "empleados": {} },
+    "Gines": { "gastos_fijos_mes": {}, "empleados": {} }
+  }
+}
